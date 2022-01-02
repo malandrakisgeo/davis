@@ -26,6 +26,7 @@ import {SetDirection, ClearDirection, SetCarry, ClearCarry} from "../emulation/i
 import {Halt} from "../emulation/instruction/halt";
 
 import parser from "./asm-parser.peg";
+import { Xchg } from "../emulation/instruction/xchg";
 
 const InstructionMapping = {
     "MOV":      Move,
@@ -90,7 +91,8 @@ const InstructionMapping = {
     "STD":      SetDirection,
     "CLD":      ClearDirection,
     "STC":      SetCarry,
-    "CLC":      ClearCarry
+    "CLC":      ClearCarry,
+    "XCHG":     Xchg
 };
 
 export class AssemblyException extends Error
