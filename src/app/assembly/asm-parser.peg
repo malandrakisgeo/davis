@@ -71,6 +71,8 @@ SingleOperandInstruction =
 
 MemoryInstruction =
 	name:$("MOV"i / "MOVSX"i) _ target:WritableExpression _ "," _ source:ReadableExpression
+    { return { tag: "Instruction", type: "Memory", name: name, operands: [target, source] }; }  /
+    name:$("XCHG"i) _ target:WritableExpression _ "," _ source:ReadableExpression
     { return { tag: "Instruction", type: "Memory", name: name, operands: [target, source] }; }
 
 ArithmeticInstruction =
